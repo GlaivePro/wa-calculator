@@ -1,3 +1,5 @@
+import editions from '../resources/wa'
+
 export class WaCalculator {
 	options = {
 		discipline: null,
@@ -7,11 +9,14 @@ export class WaCalculator {
 		edition: '2017',
 	}
 
-	constructor(options) {
+	constructor(options = {}) {
 		this.setOptions(options)
 	}
 
 	setOptions(options) {
+		if ('edition' in options)
+			this.options.edition = options.edition
+
 		if ('discipline' in options)
 			this.options.discipline = options.discipline
 
@@ -23,12 +28,13 @@ export class WaCalculator {
 
 		if ('venueType' in options)
 			this.options.venueType = options.venueType
-
-		if ('edition' in options)
-			this.options.edition = options.edition
 	}
 
 	getOptions() {
 		return { ...this.options }
+	}
+
+	getEditions() {
+		return Object.keys(editions)
 	}
 }

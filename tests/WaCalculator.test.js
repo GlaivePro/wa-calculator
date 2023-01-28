@@ -35,6 +35,12 @@ describe('options', () => {
 
 // describe('coefficients', () => {})
 
-// describe('keys', () => {})
+describe('keys', () => {
+	it('lists editions', () => {
+		const calc = new WaCalculator()
+
+		expect(calc.getEditions()).toEqual(['2017'])
+	})
+})
 
 // describe('calculations', () => {})
