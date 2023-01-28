@@ -2,10 +2,28 @@
   "name": "@glaivepro/wa-calculator",
   "version": "1.0.0",
   "description": "Point calculators for track & field events",
+  "keywords": [
+		"karatsuba",
+		"svelte",
+		"math"
+	],
   "main": "index.js",
+  "type": "module",
+	"author": {
+		"name" : "Juris Evertovskis",
+		"email" : "juris@glaive.pro",
+		"url" : "https://github.com/tontonsb/"
+	},
+	"homepage": "https://github.com/glaivepro/wa-calculator",
+	"bugs": {
+		"url": "https://github.com/glaivepro/wa-calculator/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/glaivepro/wa-calculator.git"
+	},
+  "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
