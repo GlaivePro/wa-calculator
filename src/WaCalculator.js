@@ -1,1 +1,3 @@
-export function WaCalculator() {}
+export function WaCalculator() {
+	return 1
+}

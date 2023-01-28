@@ -1,3 +1,3 @@
-import WaCalculator from './src/WaCalculator.svelte'
+import { WaCalculator } from 'src/WaCalculator.js'
 
 export {WaCalculator}
