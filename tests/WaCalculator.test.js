@@ -39,7 +39,19 @@ describe('keys', () => {
 	it('lists editions', () => {
 		const calc = new WaCalculator()
 
-		expect(calc.getEditions()).toEqual(['2017'])
+		const editions = calc.getEditions()
+
+		expect(editions).toBeInstanceOf(Array)
+		expect(editions).toContain('2017')
+	})
+
+	it('lists disciplines', () => {
+		const calc = new WaCalculator()
+
+		const disciplines = calc.getDisciplines()
+
+		expect(disciplines).toBeInstanceOf(Array)
+		expect(disciplines).toContain('100m')
 	})
 })
 

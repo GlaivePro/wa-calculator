@@ -37,4 +37,10 @@ export class WaCalculator {
 	getEditions() {
 		return Object.keys(editions)
 	}
+
+	getDisciplines() {
+		const {edition, venueType, gender} = this.options
+
+		return Object.keys(editions[edition][venueType][gender])
+	}
 }
