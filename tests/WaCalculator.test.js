@@ -34,9 +34,9 @@ describe('options', () => {
 })
 
 describe('keys', () => {
-	it('lists editions', () => {
-		const calc = new WaCalculator()
+	const calc = new WaCalculator()
 
+	it('lists editions', () => {
 		const editions = calc.getEditions()
 
 		expect(editions).toBeInstanceOf(Array)
@@ -44,8 +44,6 @@ describe('keys', () => {
 	})
 
 	it('lists disciplines', () => {
-		const calc = new WaCalculator()
-
 		const disciplines = calc.getDisciplines()
 
 		expect(disciplines).toBeInstanceOf(Array)
