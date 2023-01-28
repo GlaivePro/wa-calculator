@@ -33,8 +33,6 @@ describe('options', () => {
 	})
 })
 
-// describe('coefficients', () => {})
-
 describe('keys', () => {
 	it('lists editions', () => {
 		const calc = new WaCalculator()
@@ -52,6 +50,24 @@ describe('keys', () => {
 
 		expect(disciplines).toBeInstanceOf(Array)
 		expect(disciplines).toContain('100m')
+	})
+})
+
+describe('coefficients', () => {
+	it('returns coefficients', () => {
+		const calc = new WaCalculator({
+			discipline: '200m',
+			gender: 'f',
+			venueType: 'outdoor',
+			edition: '2017',
+		})
+
+		const coefs = calc.getCoefficients()
+
+		expect(coefs).toBeTypeOf('object')
+		expect(coefs).toHaveProperty('resultShift')
+		expect(coefs).toHaveProperty('conversionFactor')
+		expect(coefs).toHaveProperty('pointShift')
 	})
 })
 
