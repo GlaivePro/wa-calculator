@@ -27,7 +27,7 @@
 	"scripts": {
 		"test": "vitest",
 		"coverage": "vitest run --coverage --reporter=verbose",
-		"lint": "eslint"
+		"lint": "eslint ."
 	},
 	"devDependencies": {
 		"@janaseta/eslint-config": "^1.1.1",
