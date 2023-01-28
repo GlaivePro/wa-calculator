@@ -1,10 +1,10 @@
-import { describe, test, it, expect } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { WaCalculator } from '../index.js'
 
 describe('options', () => {
 	it('can be read', () => {
 		const discipline = 'test12'
-		const calc = new WaCalculator({discipline})
+		const calc = new WaCalculator({ discipline })
 
 		const options = calc.getOptions()
 		expect(options).toBeTypeOf('object')
@@ -20,13 +20,13 @@ describe('options', () => {
 
 	it('can be set', () => {
 		const disc1 = 'test1'
-		const calc = new WaCalculator({discipline: disc1})
+		const calc = new WaCalculator({ discipline: disc1 })
 		const opt1 = calc.getOptions()
 		expect(opt1.discipline).toBe(disc1)
 		expect(opt1.venueType).toBe('outdoor') // testing defaults
 
 		const disc2 = 'test2'
-		calc.setOptions({discipline: disc2})
+		calc.setOptions({ discipline: disc2 })
 		const opt2 = calc.getOptions()
 		expect(opt2.discipline).toBe(disc2)
 		expect(opt2.venueType).toBe('outdoor') // others should remain unchanged

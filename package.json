@@ -26,9 +26,11 @@
 	"license": "ISC",
 	"scripts": {
 		"test": "vitest",
-		"coverage": "vitest run --coverage --reporter=verbose"
+		"coverage": "vitest run --coverage --reporter=verbose",
+		"lint": "eslint"
 	},
 	"devDependencies": {
+		"@janaseta/eslint-config": "^1.1.1",
 		"@vitest/coverage-c8": "^0.28.3",
 		"vitest": "^0.28.3"
 	}

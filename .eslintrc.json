@@ -1,0 +1,6 @@
+{
+	"extends": "@janaseta/eslint-config",
+	"rules": {
+		"curly": ["error", "multi-or-nest"]
+	}
+}
