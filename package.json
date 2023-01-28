@@ -1,14 +1,15 @@
 {
-  "name": "@glaivepro/wa-calculator",
-  "version": "1.0.0",
-  "description": "Point calculators for track & field events",
-  "keywords": [
-		"karatsuba",
-		"svelte",
-		"math"
+	"name": "@glaivepro/wa-calculator",
+	"version": "1.0.0",
+	"description": "Point calculators for track & field events",
+	"keywords": [
+		"world athletics",
+		"track and field",
+		"athletics",
+		"scoring tables"
 	],
-  "main": "index.js",
-  "type": "module",
+	"main": "index.js",
+	"type": "module",
 	"author": {
 		"name" : "Juris Evertovskis",
 		"email" : "juris@glaive.pro",
@@ -22,8 +23,8 @@
 		"type": "git",
 		"url": "https://github.com/glaivepro/wa-calculator.git"
 	},
-  "license": "ISC",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+	"license": "ISC",
+	"scripts": {
+	"test": "echo \"Error: no test specified\" && exit 1"
+	}
 }
