@@ -1,4 +1,4 @@
-name: Build frontend
+name: Test
 
 on:
   workflow_dispatch:
@@ -6,8 +6,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
-defaults:
 
 jobs:
   test:
