@@ -6,7 +6,8 @@ For PHP version of this library see [GlaivePro/IaafPoints](https://github.com/Gl
 
 ## TODO
 
-- [ ] WA (Hungarian) points calculator
+- [x] WA (Hungarian) points calculator
+- [ ] WA (Hungarian) points 2022
 - [ ] Combined points calculator
 - [ ] Dist for browser support
 - [ ] TS support
