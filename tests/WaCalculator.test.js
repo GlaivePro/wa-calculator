@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, test } from 'vitest'
 import { WaCalculator } from '../index.js'
 
 describe('options', () => {
@@ -69,4 +69,81 @@ describe('coefficients', () => {
 	})
 })
 
-// describe('calculations', () => {})
+describe('calculations', () => {
+	test('points are correct', () => {
+		const calc = new WaCalculator()
+
+		const result = 21.61
+		// Discipline not set
+		expect(calc.evaluate(result)).toBeNull()
+
+		calc.setOptions({
+			edition: '2017',
+			venueType: 'outdoor',
+			gender: 'm',
+			discipline: '200m',
+		})
+
+		// No result
+		expect(calc.evaluate(null)).toBeNull()
+		expect(calc.evaluate(0)).toBeNull()
+
+		// Good cases
+		expect(calc.evaluate(result)).toBe(980)
+
+		// Other cases
+		calc.setOptions({gender: 'f', electronicMeasurement: true})
+		expect(calc.evaluate(result)).toBe(1279)
+
+		calc.setOptions({venueType: 'indoor', gender: 'm'})
+		expect(calc.evaluate(result)).toBe(1043)
+	})
+
+	it('applies the +.24 correction', () => {
+		const calc = new WaCalculator({
+			edition: '2017',
+			venueType: 'outdoor',
+			gender: 'm',
+			discipline: '200m',
+			electronicMeasurement: true,
+		})
+
+		const result = 21.61
+
+		expect(calc.evaluate(result)).toBe(980)
+
+		calc.setOptions({electronicMeasurement: false})
+		expect(calc.evaluate(result)).toBe(946)
+	})
+
+	it('applies the +.14 correction', () => {
+		const calc = new WaCalculator({
+			edition: '2017',
+			venueType: 'indoor',
+			gender: 'm',
+			discipline: '300m',
+			electronicMeasurement: true,
+		})
+
+		const result = 44.0
+
+		expect(calc.evaluate(result)).toBe(353)
+
+		calc.setOptions({electronicMeasurement: false})
+		expect(calc.evaluate(result)).toBe(346)
+	})
+
+	test('results worse than reference are 0', () => {
+		const calc = new WaCalculator({
+			edition: '2017',
+			venueType: 'outdoor',
+			gender: 'm',
+			discipline: '300m',
+			electronicMeasurement: true,
+		})
+
+		const result = 59.0
+
+		expect(calc.evaluate(result)).toBe(0)
+	})
+})
