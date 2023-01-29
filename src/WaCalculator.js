@@ -66,23 +66,23 @@ export class WaCalculator {
 		if (!result)
 			return null
 
-		const {resultShift, conversionFactor, pointShift} = this.getCoefficients()
+		const { resultShift, conversionFactor, pointShift } = this.getCoefficients()
 
 		if (null == resultShift || null == conversionFactor || null == pointShift)
 			return null
 
 		if (!this.options.electronicMeasurement) {
 			if (correction24disciplines.includes(this.options.discipline))
-				result += .24;
+				result += 0.24
 
 			if (correction14disciplines.includes(this.options.discipline))
-				result += .14;
+				result += 0.14
 		}
 
-		return this.evaluateUsing(result, {resultShift, conversionFactor, pointShift})
+		return this.evaluateUsing(result, { resultShift, conversionFactor, pointShift })
 	}
 
-	evaluateUsing(result, {resultShift, conversionFactor, pointShift}) {
+	evaluateUsing(result, { resultShift, conversionFactor, pointShift }) {
 		const shiftedResult = result + resultShift
 
 		// for some (track) disciplines the resultShift is subtracting "0 points

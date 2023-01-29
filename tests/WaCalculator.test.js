@@ -92,10 +92,10 @@ describe('calculations', () => {
 		expect(calc.evaluate(result)).toBe(980)
 
 		// Other cases
-		calc.setOptions({gender: 'f', electronicMeasurement: true})
+		calc.setOptions({ gender: 'f', electronicMeasurement: true })
 		expect(calc.evaluate(result)).toBe(1279)
 
-		calc.setOptions({venueType: 'indoor', gender: 'm'})
+		calc.setOptions({ venueType: 'indoor', gender: 'm' })
 		expect(calc.evaluate(result)).toBe(1043)
 	})
 
@@ -112,7 +112,7 @@ describe('calculations', () => {
 
 		expect(calc.evaluate(result)).toBe(980)
 
-		calc.setOptions({electronicMeasurement: false})
+		calc.setOptions({ electronicMeasurement: false })
 		expect(calc.evaluate(result)).toBe(946)
 	})
 
@@ -129,7 +129,7 @@ describe('calculations', () => {
 
 		expect(calc.evaluate(result)).toBe(353)
 
-		calc.setOptions({electronicMeasurement: false})
+		calc.setOptions({ electronicMeasurement: false })
 		expect(calc.evaluate(result)).toBe(346)
 	})
 

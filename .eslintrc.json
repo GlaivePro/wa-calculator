@@ -1,6 +1,7 @@
 {
 	"extends": "@janaseta/eslint-config",
 	"rules": {
-		"curly": ["error", "multi-or-nest"]
+		"curly": ["error", "multi-or-nest"],
+		"yoda": ["error", "always", {"onlyEquality": true}]
 	}
 }
