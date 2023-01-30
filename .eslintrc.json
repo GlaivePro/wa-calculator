@@ -3,5 +3,8 @@
 	"rules": {
 		"curly": ["error", "multi-or-nest"],
 		"yoda": ["error", "always", {"onlyEquality": true}]
-	}
+	},
+	"ignorePatterns": [
+		"/resources/**/index.js"
+	]
 }
