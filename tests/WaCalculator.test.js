@@ -146,4 +146,23 @@ describe('calculations', () => {
 
 		expect(calc.evaluate(result)).toBe(0)
 	})
+
+	test('lows are correct', () => {
+		const calc = new WaCalculator({
+			edition: '2017',
+			venueType: 'outdoor',
+			gender: 'm',
+			discipline: '100m',
+			electronicMeasurement: true,
+		})
+
+		expect(calc.evaluate(16.80)).toBe(0)
+		expect(calc.evaluate(16.79)).toBe(1)
+		expect(calc.evaluate(16.72)).toBe(1)
+		expect(calc.evaluate(16.71)).toBe(2)
+		expect(calc.evaluate(16.66)).toBe(2)
+		expect(calc.evaluate(16.65)).toBe(3)
+		expect(calc.evaluate(16.60)).toBe(3)
+		expect(calc.evaluate(16.59)).toBe(4)
+	})
 })
