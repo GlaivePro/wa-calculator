@@ -1,4 +1,4 @@
-import editions from '../resources/wa'
+import editions from '../resources/wa/index.js'
 
 // Results in these disciplines are adjusted by +0.24 seconds if the result is
 // taken by hand time.
@@ -66,9 +66,9 @@ export class WaCalculator {
 		if (!result)
 			return null
 
-		const { resultShift, conversionFactor, pointShift } = this.getCoefficients()
+		const coefficients = this.getCoefficients()
 
-		if (null == resultShift || null == conversionFactor || null == pointShift)
+		if (this.options.edition !== '2022' && (null == coefficients.resultShift || null == coefficients.conversionFactor || null == coefficients.pointShift))
 			return null
 
 		if (!this.options.electronicMeasurement) {
@@ -79,10 +79,16 @@ export class WaCalculator {
 				result += 0.14
 		}
 
-		return this.evaluateUsing(result, { resultShift, conversionFactor, pointShift })
+		return this.evaluateUsing(result, coefficients)
 	}
 
-	evaluateUsing(result, { resultShift, conversionFactor, pointShift }) {
+	evaluateUsing(result, coefficients) {
+    if (this.options.edition === '2022') {
+      const [a, b, c] = coefficients
+      return Math.round(a * result * result + b * result + c)
+    }
+
+    const { resultShift, conversionFactor, pointShift } = coefficients
 		const shiftedResult = result + resultShift
 
 		// for some (track) disciplines the resultShift is subtracting "0 points
