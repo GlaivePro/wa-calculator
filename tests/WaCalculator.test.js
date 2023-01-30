@@ -156,4 +156,41 @@ describe('calculations', () => {
 
 		expect(calc.evaluate(result)).toBe(0)
 	})
+	test('lows are correct', () => {
+		const calc = new WaCalculator({
+			edition: '2017',
+			venueType: 'outdoor',
+			gender: 'm',
+			discipline: '100m',
+			electronicMeasurement: true,
+		})
+
+		expect(calc.evaluate(16.80)).toBe(0)
+		expect(calc.evaluate(16.79)).toBe(1)
+		expect(calc.evaluate(16.72)).toBe(1)
+		expect(calc.evaluate(16.71)).toBe(2)
+		expect(calc.evaluate(16.66)).toBe(2)
+		expect(calc.evaluate(16.65)).toBe(3)
+		expect(calc.evaluate(16.60)).toBe(3)
+		expect(calc.evaluate(16.59)).toBe(4)
+	})
+
+	test('highs are correct', () => {
+		const calc = new WaCalculator({
+			edition: '2017',
+			venueType: 'outdoor',
+			gender: 'm',
+			discipline: '4x400m',
+			electronicMeasurement: true,
+		})
+
+		expect(calc.evaluate(167.49)).toBe(1400)
+		expect(calc.evaluate(167.50)).toBe(1399)
+		expect(calc.evaluate(167.55)).toBe(1399)
+		expect(calc.evaluate(167.56)).toBe(1398)
+		expect(calc.evaluate(167.61)).toBe(1398)
+		expect(calc.evaluate(167.62)).toBe(1397)
+		expect(calc.evaluate(167.67)).toBe(1397)
+		expect(calc.evaluate(167.68)).toBe(1396)
+	})
 })
