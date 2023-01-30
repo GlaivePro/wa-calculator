@@ -83,12 +83,12 @@ export class WaCalculator {
 	}
 
 	evaluateUsing(result, coefficients) {
-    if (this.options.edition === '2022') {
-      const [a, b, c] = coefficients
-      return Math.round(a * result * result + b * result + c)
-    }
+		if (this.options.edition === '2022') {
+			const [a, b, c] = coefficients
+			return Math.round(a * result * result + b * result + c)
+		}
 
-    const { resultShift, conversionFactor, pointShift } = coefficients
+		const { resultShift, conversionFactor, pointShift } = coefficients
 		const shiftedResult = result + resultShift
 
 		// for some (track) disciplines the resultShift is subtracting "0 points

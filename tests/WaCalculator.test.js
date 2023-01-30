@@ -99,15 +99,15 @@ describe('calculations', () => {
 		expect(calc.evaluate(result)).toBe(1043)
 	})
 
-  it('correctly calculates 2022 tables', () => {
-    const calc = new WaCalculator({
-      edition: '2022',
-      gender: 'm',
-      venueType: 'outdoor',
-      discipline: '600m',
-    })
-    expect(calc.evaluate(79.09)).toBe(980)
-  })
+	it('correctly calculates 2022 tables', () => {
+		const calc = new WaCalculator({
+			edition: '2022',
+			gender: 'm',
+			venueType: 'outdoor',
+			discipline: '600m',
+		})
+		expect(calc.evaluate(79.09)).toBe(980)
+	})
 
 	it('applies the +.24 correction', () => {
 		const calc = new WaCalculator({
