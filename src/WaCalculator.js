@@ -53,7 +53,7 @@ export class WaCalculator {
 	getDisciplines() {
 		const { edition, venueType, gender } = this.options
 
-		return Object.keys(editions[edition][venueType][gender])
+		return Object.keys(editions[edition][venueType][gender] ?? {})
 	}
 
 	getCoefficients() {
