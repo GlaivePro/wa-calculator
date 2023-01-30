@@ -1,3 +1,3 @@
-import { WaCalculator } from 'src/WaCalculator.js'
+import { WaCalculator } from './src/WaCalculator.js'
 
 export { WaCalculator }

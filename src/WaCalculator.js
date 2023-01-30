@@ -1,4 +1,4 @@
-import editions from '../resources/wa'
+import editions from '../resources/wa/index.js'
 
 // Results in these disciplines are adjusted by +0.24 seconds if the result is
 // taken by hand time.
