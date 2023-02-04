@@ -57,7 +57,7 @@ calculator.evaluateUsing(result, { resultShift, conversionFactor, pointShift })
 ## TODO/wishlist
 
 - [x] WA (Hungarian) points calculator
-- [ ] WA (Hungarian) points 2022
+- [x] WA (Hungarian) points 2022
 - [ ] Combined points calculator
 - [ ] Dist for browser support
 - [ ] TS support
