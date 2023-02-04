@@ -1,0 +1,33 @@
+name: Generate .d.ts
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    name: Generate .d.ts
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run typescript
+        run: npx tsc
+
+      - name: Commit typedefs
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update coef exports
+          file_pattern: "*.d.ts *.d.ts.map"
