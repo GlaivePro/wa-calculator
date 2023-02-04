@@ -98,7 +98,7 @@ describe('calculations', () => {
 		calc.setOptions({ venueType: 'indoor', gender: 'm' })
 		expect(calc.evaluate(result)).toBe(1043)
 	})
-	
+
 	test('points are correct on 2022', () => {
 		const calc = new WaCalculator({
 			edition: '2022',
@@ -175,7 +175,7 @@ describe('calculations', () => {
 		expect(calc.evaluate(16.60)).toBe(3)
 		expect(calc.evaluate(16.59)).toBe(4)
 	})
-	
+
 	test('highs are correct on 2022', () => {
 		const calc = new WaCalculator({
 			edition: '2022',
