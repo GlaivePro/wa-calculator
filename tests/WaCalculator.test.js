@@ -99,6 +99,16 @@ describe('calculations', () => {
 		expect(calc.evaluate(result)).toBe(1043)
 	})
 
+	test('points are correct on 2022', () => {
+		const calc = new WaCalculator({
+			edition: '2022',
+			gender: 'm',
+			venueType: 'outdoor',
+			discipline: '600m',
+		})
+		expect(calc.evaluate(79.09)).toBe(980)
+	})
+
 	it('applies the +.24 correction', () => {
 		const calc = new WaCalculator({
 			edition: '2017',
@@ -147,7 +157,7 @@ describe('calculations', () => {
 		expect(calc.evaluate(result)).toBe(0)
 	})
 
-	test('lows are correct', () => {
+	test('lows are correct on 2017', () => {
 		const calc = new WaCalculator({
 			edition: '2017',
 			venueType: 'outdoor',
@@ -164,5 +174,24 @@ describe('calculations', () => {
 		expect(calc.evaluate(16.65)).toBe(3)
 		expect(calc.evaluate(16.60)).toBe(3)
 		expect(calc.evaluate(16.59)).toBe(4)
+	})
+
+	test('highs are correct on 2022', () => {
+		const calc = new WaCalculator({
+			edition: '2022',
+			venueType: 'outdoor',
+			gender: 'm',
+			discipline: '4x400m',
+			electronicMeasurement: true,
+		})
+
+		expect(calc.evaluate(167.49)).toBe(1400)
+		expect(calc.evaluate(167.50)).toBe(1399)
+		expect(calc.evaluate(167.55)).toBe(1399)
+		expect(calc.evaluate(167.56)).toBe(1398)
+		expect(calc.evaluate(167.61)).toBe(1398)
+		expect(calc.evaluate(167.62)).toBe(1397)
+		expect(calc.evaluate(167.67)).toBe(1397)
+		expect(calc.evaluate(167.68)).toBe(1396)
 	})
 })
