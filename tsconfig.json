@@ -4,6 +4,10 @@
 		"resources/**/*",
 		"index.js"
 	],
+	"exclude": [
+		"src/**/*.d.ts",
+		"resources/**/*.d.ts",
+	],
 	"compilerOptions": {
 	  "allowJs": true,
 	  // Generate d.ts files
