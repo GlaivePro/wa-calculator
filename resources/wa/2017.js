@@ -1,4 +1,4 @@
-{
+export default {
     "outdoor": {
         "m": {
             "100m": {
@@ -21,14 +21,9 @@
                 "conversionFactor": 1.021,
                 "pointShift": 0
             },
-            "500m": {
-                "resultShift": -104,
-                "conversionFactor": 0.585,
-                "pointShift": 0
-            },
             "600m": {
-                "resultShift": -129.5,
-                "conversionFactor": 0.3857,
+                "resultShift": -131,
+                "conversionFactor": 0.367,
                 "pointShift": 0
             },
             "800m": {
@@ -37,8 +32,8 @@
                 "pointShift": 0
             },
             "1000m": {
-                "resultShift": -237.5,
-                "conversionFactor": 0.1123,
+                "resultShift": -240,
+                "conversionFactor": 0.1074,
                 "pointShift": 0
             },
             "1500m": {
@@ -108,17 +103,12 @@
             },
             "4x400m": {
                 "resultShift": -334,
-                "conversionFactor": 0.0505,
-                "pointShift": 0
-            },
-            "5km": {
-                "resultShift": -1440,
-                "conversionFactor": 0.002778,
+                "conversionFactor": 0.05026,
                 "pointShift": 0
             },
             "10km": {
                 "resultShift": -3150,
-                "conversionFactor": 0.000524,
+                "conversionFactor": 0.00052841,
                 "pointShift": 0
             },
             "15km": {
@@ -132,28 +122,28 @@
                 "pointShift": 0
             },
             "20km": {
-                "resultShift": -6702,
-                "conversionFactor": 0.00010856,
+                "resultShift": -6629,
+                "conversionFactor": 0.0001147,
                 "pointShift": 0
             },
             "half_marathon": {
-                "resultShift": -7140,
-                "conversionFactor": 9.47e-5,
+                "resultShift": -7020,
+                "conversionFactor": 0.000102,
                 "pointShift": 0
             },
             "25km": {
-                "resultShift": -8726,
-                "conversionFactor": 6.16e-5,
+                "resultShift": -8536,
+                "conversionFactor": 6.765e-5,
                 "pointShift": 0
             },
             "30km": {
-                "resultShift": -10824,
-                "conversionFactor": 3.89e-5,
+                "resultShift": -10531,
+                "conversionFactor": 4.353e-5,
                 "pointShift": 0
             },
             "marathon": {
-                "resultShift": -16200,
-                "conversionFactor": 1.645e-5,
+                "resultShift": -15600,
+                "conversionFactor": 1.91e-5,
                 "pointShift": 0
             },
             "100km": {
@@ -162,23 +152,18 @@
                 "pointShift": 0
             },
             "3kmW": {
-                "resultShift": -1605,
-                "conversionFactor": 0.001318,
+                "resultShift": -1650,
+                "conversionFactor": 0.001209,
                 "pointShift": 0
             },
             "5kmW": {
-                "resultShift": -2700,
-                "conversionFactor": 0.000467,
+                "resultShift": -2760,
+                "conversionFactor": 0.000436,
                 "pointShift": 0
             },
             "10kmW": {
-                "resultShift": -5550,
-                "conversionFactor": 0.0001137,
-                "pointShift": 0
-            },
-            "15kmW": {
-                "resultShift": -8430,
-                "conversionFactor": 4.98e-5,
+                "resultShift": -5580,
+                "conversionFactor": 0.0001118,
                 "pointShift": 0
             },
             "20kmW": {
@@ -192,51 +177,11 @@
                 "pointShift": 0
             },
             "35kmW": {
-                "resultShift": -22800,
-                "conversionFactor": 6.14e-6,
+                "resultShift": -23400,
+                "conversionFactor": 5.76e-6,
                 "pointShift": 0
             },
             "50kmW": {
-                "resultShift": -37200,
-                "conversionFactor": 2.124e-6,
-                "pointShift": 0
-            },
-            "3000mW": {
-                "resultShift": -1605,
-                "conversionFactor": 0.001318,
-                "pointShift": 0
-            },
-            "5000mW": {
-                "resultShift": -2700,
-                "conversionFactor": 0.000467,
-                "pointShift": 0
-            },
-            "10000mW": {
-                "resultShift": -5550,
-                "conversionFactor": 0.0001137,
-                "pointShift": 0
-            },
-            "15000mW": {
-                "resultShift": -8430,
-                "conversionFactor": 4.98e-5,
-                "pointShift": 0
-            },
-            "20000mW": {
-                "resultShift": -11400,
-                "conversionFactor": 2.735e-5,
-                "pointShift": 0
-            },
-            "30000mW": {
-                "resultShift": -19110,
-                "conversionFactor": 8.93e-6,
-                "pointShift": 0
-            },
-            "35000mW": {
-                "resultShift": -22800,
-                "conversionFactor": 6.14e-6,
-                "pointShift": 0
-            },
-            "50000mW": {
                 "resultShift": -37200,
                 "conversionFactor": 2.124e-6,
                 "pointShift": 0
@@ -272,8 +217,8 @@
                 "pointShift": -20000
             },
             "hammer_throw": {
-                "resultShift": 2649.4,
-                "conversionFactor": 0.0028462,
+                "resultShift": 2669.4,
+                "conversionFactor": 0.0028038,
                 "pointShift": -20000
             },
             "javelin_throw": {
@@ -308,14 +253,9 @@
                 "conversionFactor": 0.335,
                 "pointShift": 0
             },
-            "500m": {
-                "resultShift": -145.5,
-                "conversionFactor": 0.1876,
-                "pointShift": 0
-            },
             "600m": {
-                "resultShift": -180,
-                "conversionFactor": 0.129,
+                "resultShift": -184,
+                "conversionFactor": 0.1192,
                 "pointShift": 0
             },
             "800m": {
@@ -374,8 +314,8 @@
                 "pointShift": 0
             },
             "2000mSt": {
-                "resultShift": -932,
-                "conversionFactor": 0.003636,
+                "resultShift": -880,
+                "conversionFactor": 0.0045,
                 "pointShift": 0
             },
             "3000mSt": {
@@ -398,44 +338,39 @@
                 "conversionFactor": 0.01562,
                 "pointShift": 0
             },
-            "5km": {
-                "resultShift": -2100,
-                "conversionFactor": 0.000808,
-                "pointShift": 0
-            },
             "10km": {
                 "resultShift": -4500,
-                "conversionFactor": 0.0001712,
+                "conversionFactor": 0.0001742,
                 "pointShift": 0
             },
             "15km": {
-                "resultShift": -7289,
-                "conversionFactor": 5.95e-5,
+                "resultShift": -6905,
+                "conversionFactor": 7.32e-5,
                 "pointShift": 0
             },
             "10miles": {
-                "resultShift": -7904,
-                "conversionFactor": 5.016e-5,
+                "resultShift": -7438,
+                "conversionFactor": 6.3e-5,
                 "pointShift": 0
             },
             "20km": {
-                "resultShift": -10154,
-                "conversionFactor": 2.956e-5,
+                "resultShift": -9357,
+                "conversionFactor": 3.96e-5,
                 "pointShift": 0
             },
             "half_marathon": {
-                "resultShift": -10798,
-                "conversionFactor": 2.596e-5,
+                "resultShift": -9900,
+                "conversionFactor": 3.53e-5,
                 "pointShift": 0
             },
             "25km": {
-                "resultShift": -12966,
-                "conversionFactor": 1.81e-5,
+                "resultShift": -12144,
+                "conversionFactor": 2.28e-5,
                 "pointShift": 0
             },
             "30km": {
-                "resultShift": -15783,
-                "conversionFactor": 1.229e-5,
+                "resultShift": -15123,
+                "conversionFactor": 1.426e-5,
                 "pointShift": 0
             },
             "marathon": {
@@ -449,8 +384,8 @@
                 "pointShift": 0
             },
             "3kmW": {
-                "resultShift": -1842,
-                "conversionFactor": 0.000923,
+                "resultShift": -1871,
+                "conversionFactor": 0.000881,
                 "pointShift": 0
             },
             "5kmW": {
@@ -459,13 +394,8 @@
                 "pointShift": 0
             },
             "10kmW": {
-                "resultShift": -6420,
-                "conversionFactor": 7.85e-5,
-                "pointShift": 0
-            },
-            "15kmW": {
-                "resultShift": -9784,
-                "conversionFactor": 3.388e-5,
+                "resultShift": -6437,
+                "conversionFactor": 7.79e-5,
                 "pointShift": 0
             },
             "20kmW": {
@@ -474,58 +404,13 @@
                 "pointShift": 0
             },
             "30kmW": {
-                "resultShift": -21360,
-                "conversionFactor": 6.89e-6,
-                "pointShift": 0
-            },
-            "35kmW": {
-                "resultShift": -25440,
-                "conversionFactor": 4.93e-6,
+                "resultShift": -21545,
+                "conversionFactor": 6.9e-6,
                 "pointShift": 0
             },
             "50kmW": {
-                "resultShift": -39360,
-                "conversionFactor": 1.99e-6,
-                "pointShift": 0
-            },
-            "3000mW": {
-                "resultShift": -1842,
-                "conversionFactor": 0.000923,
-                "pointShift": 0
-            },
-            "5000mW": {
-                "resultShift": -3140,
-                "conversionFactor": 0.0003246,
-                "pointShift": 0
-            },
-            "10000mW": {
-                "resultShift": -6420,
-                "conversionFactor": 7.85e-5,
-                "pointShift": 0
-            },
-            "15000mW": {
-                "resultShift": -9784,
-                "conversionFactor": 3.388e-5,
-                "pointShift": 0
-            },
-            "20000mW": {
-                "resultShift": -13200,
-                "conversionFactor": 1.87e-5,
-                "pointShift": 0
-            },
-            "30000mW": {
-                "resultShift": -21360,
-                "conversionFactor": 6.89e-6,
-                "pointShift": 0
-            },
-            "35000mW": {
-                "resultShift": -25440,
-                "conversionFactor": 4.93e-6,
-                "pointShift": 0
-            },
-            "50000mW": {
-                "resultShift": -39360,
-                "conversionFactor": 1.99e-6,
+                "resultShift": -39952,
+                "conversionFactor": 1.96e-6,
                 "pointShift": 0
             },
             "high_jump": {
@@ -655,21 +540,6 @@
             "5000m": {
                 "resultShift": -1440,
                 "conversionFactor": 0.0029,
-                "pointShift": 0
-            },
-            "3000mW": {
-                "resultShift": -1605,
-                "conversionFactor": 0.001318,
-                "pointShift": 0
-            },
-            "5000mW": {
-                "resultShift": -2700,
-                "conversionFactor": 0.000467,
-                "pointShift": 0
-            },
-            "10000mW": {
-                "resultShift": -5550,
-                "conversionFactor": 0.0001137,
                 "pointShift": 0
             },
             "50mh": {
@@ -807,21 +677,6 @@
             "5000m": {
                 "resultShift": -2100,
                 "conversionFactor": 0.000825,
-                "pointShift": 0
-            },
-            "3000mW": {
-                "resultShift": -1842,
-                "conversionFactor": 0.000923,
-                "pointShift": 0
-            },
-            "5000mW": {
-                "resultShift": -3140,
-                "conversionFactor": 0.0003246,
-                "pointShift": 0
-            },
-            "10000mW": {
-                "resultShift": -6420,
-                "conversionFactor": 7.85e-5,
                 "pointShift": 0
             },
             "50mh": {
