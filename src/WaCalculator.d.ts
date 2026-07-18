@@ -5,6 +5,7 @@ export class WaCalculator {
         gender: string;
         electronicMeasurement: boolean;
         venueType: string;
+        trackType: string;
         edition: string;
     };
     setOptions(options: any): void;
@@ -13,10 +14,12 @@ export class WaCalculator {
         gender: string;
         electronicMeasurement: boolean;
         venueType: string;
+        trackType: string;
         edition: string;
     };
     getEditions(): string[];
     getDisciplines(): string[];
+    getTables(): any;
     getCoefficients(): any;
     evaluate(result: any): number;
     evaluateUsing(result: any, { resultShift, conversionFactor, pointShift }: {

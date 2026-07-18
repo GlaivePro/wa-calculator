@@ -12,10 +12,12 @@ describe('options', () => {
 		expect(options).toHaveProperty('gender')
 		expect(options).toHaveProperty('electronicMeasurement')
 		expect(options).toHaveProperty('venueType')
+		expect(options).toHaveProperty('trackType')
 		expect(options).toHaveProperty('edition')
 
 		expect(options.discipline).toBe(discipline)
 		expect(options.venueType).toBe('outdoor') // testing defaults
+		expect(options.trackType).toBe('long')
 	})
 
 	it('can be set', () => {
@@ -157,6 +159,30 @@ describe('calculations', () => {
 		expect(calc.evaluate(result)).toBe(0)
 	})
 
+	test('negative points are 0', () => {
+		const calc = new WaCalculator({
+			edition: '2025',
+			gender: 'm',
+			discipline: 'high_jump',
+		})
+
+		expect(calc.evaluate(0.5)).toBe(0)
+	})
+
+	test('unknown tables evaluate to null', () => {
+		const calc = new WaCalculator({
+			edition: '2022',
+			venueType: 'road',
+			gender: 'm',
+			discipline: '100m',
+		})
+
+		expect(calc.evaluate(11.15)).toBeNull()
+
+		calc.setOptions({ venueType: 'outdoor', edition: '2031' })
+		expect(calc.evaluate(11.15)).toBeNull()
+	})
+
 	test('lows are correct on 2017', () => {
 		const calc = new WaCalculator({
 			edition: '2017',
@@ -193,5 +219,145 @@ describe('calculations', () => {
 		expect(calc.evaluate(167.62)).toBe(1397)
 		expect(calc.evaluate(167.67)).toBe(1397)
 		expect(calc.evaluate(167.68)).toBe(1396)
+	})
+})
+
+describe('2025 edition', () => {
+	test('points are correct', () => {
+		const calc = new WaCalculator({
+			edition: '2025',
+			gender: 'm',
+			discipline: '200m',
+		})
+
+		expect(calc.evaluate(22.62)).toBe(842)
+	})
+
+	it('selects the short twin by track type', () => {
+		const calc = new WaCalculator({
+			edition: '2025',
+			gender: 'm',
+			discipline: '200m',
+			trackType: 'short',
+		})
+
+		expect(calc.evaluate(23.07)).toBe(842)
+
+		// the short table can also be requested explicitly
+		calc.setOptions({ discipline: '200m_short', trackType: 'long' })
+		expect(calc.evaluate(23.07)).toBe(842)
+	})
+
+	it('falls back to the common table where the track length does not matter', () => {
+		const calc = new WaCalculator({
+			edition: '2025',
+			gender: 'm',
+			discipline: '60m',
+			trackType: 'long',
+		})
+
+		expect(calc.evaluate(7.19)).toBe(845)
+
+		calc.setOptions({ trackType: 'short' })
+		expect(calc.evaluate(7.19)).toBe(845)
+	})
+
+	it('ignores the venue type', () => {
+		const calc = new WaCalculator({
+			edition: '2025',
+			gender: 'm',
+			discipline: '200m',
+			venueType: 'outdoor',
+		})
+
+		expect(calc.evaluate(22.62)).toBe(842)
+
+		calc.setOptions({ venueType: 'indoor' })
+		expect(calc.evaluate(22.62)).toBe(842)
+	})
+
+	it('lists the short twins as disciplines', () => {
+		const calc = new WaCalculator({ edition: '2025', gender: 'f' })
+
+		const disciplines = calc.getDisciplines()
+
+		expect(disciplines).toContain('200m')
+		expect(disciplines).toContain('200m_short')
+		expect(disciplines).not.toContain('60m_short')
+		expect(disciplines).not.toContain('high_jump_short')
+	})
+
+	it('includes the mixed relays on both tables', () => {
+		const calc = new WaCalculator({
+			edition: '2025',
+			gender: 'm',
+			discipline: 'mixed_4x400m',
+		})
+
+		expect(calc.evaluate(224.44)).toBe(842)
+
+		calc.setOptions({ gender: 'f' })
+		expect(calc.evaluate(224.44)).toBe(842)
+	})
+
+	it('applies the +.24 correction on the short track', () => {
+		const calc = new WaCalculator({
+			edition: '2025',
+			gender: 'm',
+			discipline: '200m',
+			trackType: 'short',
+			electronicMeasurement: true,
+		})
+
+		const electronic = calc.evaluate(23.07)
+
+		calc.setOptions({ electronicMeasurement: false })
+		expect(calc.evaluate(23.07 - 0.24)).toBe(electronic)
+	})
+
+	it('applies the +.14 correction to 300mh', () => {
+		// The book omits 300mh, but WA confirmed via email that it's a typo.
+		const calc = new WaCalculator({
+			edition: '2025',
+			gender: 'm',
+			discipline: '300mh',
+			electronicMeasurement: true,
+		})
+
+		expect(calc.evaluate(39.77)).toBe(842)
+
+		calc.setOptions({ electronicMeasurement: false })
+		expect(calc.evaluate(39.77 - 0.14)).toBe(842)
+	})
+
+	it('does not apply the 500m correction anymore', () => {
+		const calc = new WaCalculator({
+			gender: 'm',
+			discipline: '500m',
+			electronicMeasurement: false,
+		})
+
+		// the correction applies up to the 2022 edition...
+		calc.setOptions({ edition: '2017', venueType: 'indoor' })
+		expect(calc.evaluate(69.0)).toBe(767)
+
+		// ...but not since the 2025 edition
+		calc.setOptions({ edition: '2025' })
+		expect(calc.evaluate(69.0)).toBe(716)
+	})
+
+	it('ignores the track type on older editions', () => {
+		const calc = new WaCalculator({
+			edition: '2022',
+			venueType: 'indoor',
+			gender: 'm',
+			discipline: '200m',
+			trackType: 'long',
+		})
+
+		expect(calc.evaluate(23.07)).toBe(842)
+
+		calc.setOptions({ trackType: 'short' })
+		expect(calc.evaluate(23.07)).toBe(842)
 	})
 })

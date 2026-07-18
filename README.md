@@ -17,13 +17,14 @@ npm i @glaivepro/wa-calculator
 ```js
 import { WaCalculator } from '@glaivepro/wa-calculator'
 
-const options = [
-	edition: '2017', // edition of scoring tables, default is '2017' 
+const options = {
+	edition: '2017', // edition of scoring tables ('2017', '2022' or '2025'), default is '2017'
 	gender: 'm', // 'm' or 'f', default is 'm'
-	venueType: 'outdoor', // 'indoor' or 'outdoor', default is 'outdoor'
+	venueType: 'outdoor', // 'indoor' or 'outdoor', default is 'outdoor' --- used by the '2017' and '2022' editions
+	trackType: 'long', // 'long' or 'short', default is 'long' --- used by the '2025' and later editions
 	electronicMeasurement: true, // whether electronic or hand time was taken, default is true
 	discipline: '200m', // no default, see below how to list available keys
-];
+}
 
 const calculator = new WaCalculator(options)
 
@@ -32,7 +33,7 @@ const points = calculator.evaluate(21.61) // 980
 
 // Update options
 calculator.setOptions({ gender : 'f' })
-const femalePoints = $calculator->evaluate(21.61) // 1279
+const femalePoints = calculator.evaluate(21.61) // 1279
 
 // Get list of editions
 calculator.getEditions()
