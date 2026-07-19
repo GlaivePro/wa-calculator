@@ -23,6 +23,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # The previously generated files must be removed, otherwise tsc refuses
+      # to overwrite them once they get pulled into the program via imports.
+      # The hand-maintained resources/wa/index.d.ts must be kept — it shadows
+      # the data files out of the program.
+      - name: Remove previously generated typedefs
+        run: rm -f index.d.ts index.d.ts.map src/WaCalculator.d.ts src/WaCalculator.d.ts.map
+
       - name: Run typescript
         run: npx tsc
 

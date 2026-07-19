@@ -1,14 +1,18 @@
 {
+	// The resources are deliberately not included: the hand-maintained
+	// resources/wa/index.d.ts types the data as `any` and shadows the data
+	// files out of the program, so no huge typings get generated for them.
 	"include": [
 		"src/**/*",
-		"resources/**/*",
 		"index.js"
 	],
 	"exclude": [
 		"src/**/*.d.ts",
-		"resources/**/*.d.ts",
 	],
 	"compilerOptions": {
+	  // Don't load any @types packages — this build emits declarations for our
+	  // own sources only and modern @types/node isn't parseable by TS 4.
+	  "types": [],
 	  "allowJs": true,
 	  // Generate d.ts files
 	  "declaration": true,
